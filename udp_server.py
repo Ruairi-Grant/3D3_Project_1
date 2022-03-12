@@ -1,6 +1,6 @@
 import socket
 
-localIP     = "127.0.0.1"
+localIP     = "127.0.0.2"
 localPort   = 20001
 bufferSize  = 1024
 
@@ -13,7 +13,7 @@ UDPServerSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
 # Bind to address and ip
 UDPServerSocket.bind((localIP, localPort))
 
-print("RSU 1 active.")
+print("RSU 1 online.")
 
 # Listen for incoming datagrams
 while(True):
@@ -23,11 +23,11 @@ while(True):
 
     address = bytesAddressPair[1]
 
-    clientMsg = "Message from EV:{}".format(message)
-    clientIP  = "EV IP Address:{}".format(address)
+    clientMsg = "EV inbound - {}".format(message)
+    #clientIP  = "EV IP Address:{}".format(address)
     
     print(clientMsg)
-    print(clientIP)
+    #print(clientIP)
 
     # Sending a reply to client
     UDPServerSocket.sendto(bytesToSend, address)
