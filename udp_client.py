@@ -11,7 +11,7 @@ bufferSize = 1024
 
 # Path planning algorithm will be implemented here to generate a list of nodes along the EV's route
 def generate_node_list():
-    return ("A B C D E /")
+    return ("A B C /")
 
 # EV acquires the address and port of the next RSU in its node list from a database
 def node_ip_address(node):

@@ -16,7 +16,7 @@ def Receiving(sock,first_connect):
             nodes, eta = data.split('/')
             nodes = nodes.strip()
             nodes = nodes.split(' ')
-            print("Travel Route: ", nodes, "\nETA: ", eta)
+            print("Travel Route: ", nodes, "\nETA to first node: ", eta)
             print("Start clearing traffic between", nodes[0], "and", nodes[1])
             if len(nodes)>2:
                 target = node_table[nodes[1]]
