@@ -11,3 +11,4 @@ The udp_peer should output when it has finished connection with a node.
 References:
 Code adapted partially from 
 https://pythontic.com/modules/socket/udp-client-server-example
+https://www.codeunderscored.com/socket-programming-in-python/#Example_3_UDP_Chating_System_Peer_to_Peer
