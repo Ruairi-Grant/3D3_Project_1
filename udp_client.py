@@ -15,7 +15,7 @@ def generate_node_list():
 
 # EV acquires the address and port of the next RSU in its node list from a database
 def node_ip_address(node):
-    return ("127.0.0.2", 20001)
+    return ("127.0.0.1", 654332)
 
 # ETA calculating algorithm will be implemented here
 def return_eta():
@@ -45,7 +45,7 @@ while not finished:
     i = i + 10 
     if eta < 10: # if the EV is within 10 seconds of the light, stop sending telemetry
         finished = True
-
+print("Finishing connection")
 msgFromServer = UDPClientSocket.recvfrom(bufferSize)
 
 msg = "Message from RSU {}".format(msgFromServer[0])
