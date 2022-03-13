@@ -20,14 +20,8 @@ while(True):
     bytesAddressPair = UDPServerSocket.recvfrom(bufferSize)
 
     message = bytesAddressPair[0]
-
-    address = bytesAddressPair[1]
+    address = bytesAddressPair[1] # in case we want to send a message back to the EV, e.g. a confirmatory message
 
     clientMsg = "EV inbound - {}".format(message)
-    #clientIP  = "EV IP Address:{}".format(address)
     
     print(clientMsg)
-    #print(clientIP)
-
-    # Sending a reply to client
-    UDPServerSocket.sendto(bytesToSend, address)
