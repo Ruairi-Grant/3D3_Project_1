@@ -1,4 +1,5 @@
 # peer2.py
+# Node B
 from socket import *
 from threading import *
 
@@ -16,13 +17,15 @@ def Receiving(sock,first_connect):
 			nodes = nodes.split(' ')
 			print("Travel Route: ", nodes, "\nETA: ", eta)
 			print("Start clearing traffic between ", nodes[0], " and ", nodes[1])
-	
+			if len(nodes)>2:
+				target = node_table[nodes[1]]
+				sock.sendto(data[1:].encode('ascii'), target)
 
 
 my_addr =('127.0.0.1',65431)
 t_ip = '127.0.0.1' 
 target =(t_ip, 65432)
-
+node_table = {'C':(t_ip, 65432)}
 
 
 s = socket(AF_INET, SOCK_DGRAM)
@@ -36,5 +39,7 @@ x = Thread(target=Receiving, args=(s, once))
 x.start()
 
 wel="OK!"
-s.sendto(wel.encode('ascii'), target)
+for key in node_table:
+    target = node_table[key]
+    s.sendto(wel.encode('ascii'), target)
 
