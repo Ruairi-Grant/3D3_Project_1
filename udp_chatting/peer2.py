@@ -1,20 +1,18 @@
 # peer2.py
-# we are going to type the list in here
-
 from socket import *
 from threading import *
 
 def Receiving(sock,first_connect):
-    while True:
-        data, addr = sock.recvfrom(1024)
-        if(first_connect and data.decode('ascii')=="OK!"):
-            print("[+] Connected Successfully ")
-            wel="OK!"
-            sock.sendto(wel.encode('ascii'), target)
-            first_connect=False
-            continue
-        else:
-            print(data)
+	while True:
+		data, addr = sock.recvfrom(1024)
+		if(first_connect and data.decode('ascii')=="OK!"):
+			print("[+] Connected Successfully ")
+			first_connect=False
+			continue
+		else:
+			data = data.decode('ascii')
+			nodes, eta = data.split('/')
+			print("Travel Route: ", nodes, "\nETA: ", eta)
 	
 
 
@@ -36,7 +34,3 @@ x.start()
 
 wel="OK!"
 s.sendto(wel.encode('ascii'), target)
-
-while True:
-	msg = input("")
-	s.sendto(msg.encode('ascii'), target)

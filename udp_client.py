@@ -3,7 +3,7 @@ import time
 
 eta = 120
 
-serverAddressPort   = ("127.0.0.2", 20001)
+serverAddressPort   = ("127.0.0.1", 65432)
 bufferSize          = 1024
 
 # Path planning algorithm will be implemented here to generate a list of nodes along the EV's route

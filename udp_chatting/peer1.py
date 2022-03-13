@@ -7,16 +7,13 @@ def Receiving(sock,first_connect):
         data, addr = sock.recvfrom(1024)
         if(first_connect and data.decode('ascii')=="OK!"):
             print("[+] Connected Successfully ")
-            wel="OK!"
-            sock.sendto(wel.encode('ascii'), target)
             first_connect=False
             continue
         else:
             data = data.decode('ascii')
-            print(data)
             sock.sendto(data[1:].encode('ascii'), target)
-            #nodes, eta = data.split('/')
-            #print(nodes, eta)
+            nodes, eta = data.split('/')
+            print("Travel Route: ", nodes, "\nETA: ", eta)
 
 my_addr = ('127.0.0.1', 65432)
 t_ip= '127.0.0.1' 
@@ -33,9 +30,7 @@ first_connect = True
 x = Thread(target=Receiving, args=(s,first_connect))
 x.start()
 
-while True:
-    msg = input("")
-    s.sendto(msg.encode('ascii'), target)
+
 
 
     
