@@ -8,6 +8,5 @@ The udp_client is given its path and the ip address for each peer. this code is 
 Each peer should output the traffic direction that it is targeting and the travel route of the EV after it has passed the node.
 The udp_peer should output when it has finished connection with a node.
 
-References:
-Code adapted partially from 
+Code -partially adapted from:
 https://pythontic.com/modules/socket/udp-client-server-example
