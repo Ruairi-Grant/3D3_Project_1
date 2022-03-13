@@ -12,7 +12,10 @@ def Receiving(sock,first_connect):
 		else:
 			data = data.decode('ascii')
 			nodes, eta = data.split('/')
+			nodes = nodes.strip()
+			nodes = nodes.split(' ')
 			print("Travel Route: ", nodes, "\nETA: ", eta)
+			print("Start clearing traffic between ", nodes[0], " and ", nodes[1])
 	
 
 

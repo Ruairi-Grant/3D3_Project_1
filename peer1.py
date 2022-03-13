@@ -13,7 +13,10 @@ def Receiving(sock,first_connect):
             data = data.decode('ascii')
             sock.sendto(data[1:].encode('ascii'), target)
             nodes, eta = data.split('/')
+            nodes = nodes.strip()
+            nodes = nodes.split(' ')
             print("Travel Route: ", nodes, "\nETA: ", eta)
+            print("Start clearing traffic between", nodes[0], "and", nodes[1])
 
 my_addr = ('127.0.0.1', 65432)
 t_ip= '127.0.0.1' 
